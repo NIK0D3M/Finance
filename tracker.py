@@ -2,12 +2,12 @@ from expense import Expense
 
 class FinanceTracker:
   def __init__(self):
-    self.expensees = []
+    self.expenses = []
     self.categories = set()
     
   def add_expense(self, amount, category, description="", date=None):
-    expense = Expense(amount, category. description, date)
-    self.expense.append(expense)
+    expense = Expense(amount, category, description, date)
+    self.expenses.append(expense)
     self.categories.add(category)
     return expense
   
