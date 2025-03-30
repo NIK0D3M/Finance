@@ -68,3 +68,54 @@ def main():
         for i, expenses in enumerate(expenses, 1):
           print(f"{i}. {expense}")
         print(f"\nTotal: ${tracker.get_total_expenses():.2f}")
+        
+    elif choice ==  '3':
+      
+      categories = tracker.get_all_categories()
+      if not categories:
+        print("\nNo expenses recorded yet.")
+        continue
+      
+      print("\n--- Categories ---")
+      for i, category in enumerate(categories, 1):
+        print(f"{i}. {category}")
+        
+      try:
+        cat_idx = int(input("\nSelect category number: ")) - 1
+        if 0 <= cat_idx < len(categories):
+          selected_category = categories[cat_idx]
+          print(f"\n--- Expenses in {selected_category} ---")
+          cat_expenses = tracker.get_expenses_by_category(selected_category)
+          for i, expense in enumerate(cat_expenses, 1):
+            print(f"\nTotal for {selected_category}: ${tracker.get_total_by_category(selected_category):.2f}")
+        else:
+          print("Invalid selection.")
+      except ValueError:
+        print("Please enter a valid number.")
+        
+    elif choice == '4':
+      
+      print("\n--- Spending Summary ---")
+      categories = tracker.get_all_categories()
+      if not categories:
+        print("No expenses recorded yet.")
+        continue
+      
+      total = tracker.get_total_expenses()
+      print(f"Total Spending: ${total:.2f}\n")
+      
+      print("Breakdown by Category:")
+      for category in categories:
+        cat_total = tracker.get_total_by_category(category)
+        percentage = (cat_total / total) * 100 if total > 0 else 0
+        print(f"{category}: #{cat_total:.2f} ({percentage:.1f}%)")
+        
+    elif choice == '5':
+      print("\nThank you for using Personal Finance Tracker!")
+      break
+    
+    else:
+      print("Invalid choice. Please try again.")
+      
+if __name__ == "__main__":
+  main()
