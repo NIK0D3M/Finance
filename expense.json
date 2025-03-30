@@ -10,5 +10,11 @@
         "category": "Groceries",
         "description": "",
         "date": "2025-03-30 15:09:26"
+    },
+    {
+        "amount": 1000.0,
+        "category": "Course",
+        "description": "Course on programming",
+        "date": "2025-03-30 15:12:11"
     }
 ]
