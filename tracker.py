@@ -12,6 +12,9 @@ class FinanceTracker:
     return expense
   
   def get_expenses(self):
+    return self.expenses
+  
+  def get_total_expenses(self):
     return sum(expense.amount for expense in self.expenses)
   
   def get_expenses_by_category(self, category):

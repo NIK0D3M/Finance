@@ -65,7 +65,7 @@ def main():
       if not expenses:
         print("No expenses recorded yet.")
       else: 
-        for i, expenses in enumerate(expenses, 1):
+        for i, expense in enumerate(expenses, 1):
           print(f"{i}. {expense}")
         print(f"\nTotal: ${tracker.get_total_expenses():.2f}")
         
@@ -108,7 +108,7 @@ def main():
       for category in categories:
         cat_total = tracker.get_total_by_category(category)
         percentage = (cat_total / total) * 100 if total > 0 else 0
-        print(f"{category}: #{cat_total:.2f} ({percentage:.1f}%)")
+        print(f"{category}: ${cat_total:.2f} ({percentage:.1f}%)")
         
     elif choice == '5':
       print("\nThank you for using Personal Finance Tracker!")
